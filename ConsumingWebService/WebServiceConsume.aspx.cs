@@ -11,7 +11,7 @@ namespace ConsumingWebService
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            Disp();
         }
 
         protected void Button1_Click(object sender, EventArgs e)
@@ -19,6 +19,13 @@ namespace ConsumingWebService
             MyServiceReference.MyWebServiceSoapClient client = new MyServiceReference.MyWebServiceSoapClient();
            int result =  client.Addition(int.Parse(TextBox1.Text),int.Parse(TextBox2.Text));
             Label1.Text = "Sum of Two Number is = " + result.ToString();
+        }
+
+        void Disp()
+        {
+            MyServiceReference.MyWebServiceSoapClient client = new MyServiceReference.MyWebServiceSoapClient();
+            GridView1.DataSource = client.Get();
+            GridView1.DataBind();
         }
     }
 }

@@ -80,6 +80,7 @@
     <Content Include="Web.config" />
     <Content Include="WebServiceConsume.aspx" />
     <None Include="Connected Services\MyServiceReference\MyWebService.wsdl" />
+    <Content Include="Properties\DataSources\System.Data.DataTable.datasource" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Connected Services\MyServiceReference\Reference.cs">

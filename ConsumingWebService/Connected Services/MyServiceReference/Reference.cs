@@ -9,6 +9,7 @@
 //------------------------------------------------------------------------------
 
 namespace ConsumingWebService.MyServiceReference {
+    using System.Data;
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -16,10 +17,18 @@ namespace ConsumingWebService.MyServiceReference {
     public interface MyWebServiceSoap {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Addition", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         int Addition(int a, int b);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Addition", ReplyAction="*")]
         System.Threading.Tasks.Task<int> AdditionAsync(int a, int b);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Get", ReplyAction="*")]
+        [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
+        System.Data.DataTable Get();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/Get", ReplyAction="*")]
+        System.Threading.Tasks.Task<System.Data.DataTable> GetAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -55,6 +64,14 @@ namespace ConsumingWebService.MyServiceReference {
         
         public System.Threading.Tasks.Task<int> AdditionAsync(int a, int b) {
             return base.Channel.AdditionAsync(a, b);
+        }
+        
+        public System.Data.DataTable Get() {
+            return base.Channel.Get();
+        }
+        
+        public System.Threading.Tasks.Task<System.Data.DataTable> GetAsync() {
+            return base.Channel.GetAsync();
         }
     }
 }
